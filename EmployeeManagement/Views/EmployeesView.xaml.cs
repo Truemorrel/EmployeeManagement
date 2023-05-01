@@ -25,11 +25,6 @@ namespace EmployeeManagement.Views
 			InitializeComponent();
 		}
 
-		private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
-		{
-
-        }
-
 		private void ListView_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
 		{
 			var item = (sender as ListView).SelectedItem;

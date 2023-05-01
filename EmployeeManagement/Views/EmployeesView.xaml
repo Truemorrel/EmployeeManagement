@@ -12,48 +12,30 @@
         <vm:EmployeesViewModel></vm:EmployeesViewModel>
     </Window.DataContext>
     <Grid>
-        <ListView Margin="39,33,39,33" Width="NaN" Height="NaN" RenderTransformOrigin="0.5,0.5">
-            <ListView.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </ListView.RenderTransform>
-            <ListView PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick" ItemsSource="{Binding Employees}"  Width="722" Height="368" RenderTransformOrigin="0.5,0.5">
-                <ListView.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="0"/>
-                        <RotateTransform Angle="0"/>
-                        <TranslateTransform X="1"/>
-                    </TransformGroup>
-                </ListView.RenderTransform>
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding LastName}">
-                            <GridViewColumnHeader Content="Фамилия"/>
-                        </GridViewColumn>
-                        <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding FirstName}">
-                            <GridViewColumnHeader Content="Имя"/>
-                        </GridViewColumn>
-                        <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Age}">
-                            <GridViewColumnHeader Content="Возраст"/>
-                        </GridViewColumn>
-                        <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CompanyName}">
-                            <GridViewColumnHeader Content="Компания"/>
-                        </GridViewColumn>
-                        <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Position}">
-                            <GridViewColumnHeader Content="Должность"/>
-                        </GridViewColumn>
-                        <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CityName}">
-                            <GridViewColumnHeader Content="Город"/>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+        <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="40,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" />
+        <ListView ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged}" Margin="40,30,40,30">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding LastName}">
+                        <GridViewColumnHeader Content="Фамилия"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding FirstName}">
+                        <GridViewColumnHeader Content="Имя"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Age}">
+                        <GridViewColumnHeader Content="Возраст"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CompanyName}">
+                        <GridViewColumnHeader Content="Компания"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding Position}">
+                        <GridViewColumnHeader Content="Должность"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CityName}">
+                        <GridViewColumnHeader Content="Город"/>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
         </ListView>
-
     </Grid>
 </Window>
