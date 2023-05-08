@@ -1,4 +1,5 @@
 ﻿using EmployeeManagement.Models;
+using EmployeeManagement.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,28 +17,44 @@ using System.Windows.Shapes;
 namespace EmployeeManagement.Views
 {
 	/// <summary>
-	/// Interaction logic for EmployessView.xaml
+	/// Interaction logic for EmployeesView.xaml
 	/// </summary>
-	public partial class EmployessView : Window
+	public partial class EmployeesView : Window
 	{
-		public EmployessView()
+		IEmployeeViewModel _employeeViewModel;
+		IEmployeesViewModel _employeesViewModel;
+		public EmployeesView(
+			IEmployeesViewModel employeesViewModel,
+			IEmployeeViewModel employeeViewModel)
 		{
+			_employeesViewModel = employeesViewModel;
+			_employeeViewModel = employeeViewModel;
+
 			InitializeComponent();
+			DataContext = _employeesViewModel;
 		}
 
 		private void ListView_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
 		{
 			var item = (sender as ListView).SelectedItem;
+
 			if (item is null) { return;}
-			var firstName = (item as Employee).FirstName;
-			var lastName = (item as Employee).LastName;
-			var age = (item as Employee).Age;
-			var companyName = (item as Employee).CompanyName;
-			var position = (item as Employee).Position;
-			var cityName = (item as Employee).CityName;
-			MessageBox.Show($"Имя: {firstName}{Environment.NewLine}Фамилия: {lastName}{Environment.NewLine}" +
-				$"Возраст: {age}{Environment.NewLine}Название компании: {companyName}{Environment.NewLine}" +
-				$"Должность: {position}{Environment.NewLine}Город: {cityName}");
+
+			var employee = item as Employee;
+
+			_employeeViewModel.Employee = employee;
+
+			var employeeView = new EmployeeView(_employeeViewModel);
+
+			employeeView.Show();
+
+			
 		}
+		//private string Message(Employee employee)
+		//{
+		//	return $"Имя: {employee.FirstName}{Environment.NewLine}Фамилия: {employee.LastName}{Environment.NewLine}" +
+		//		$"Возраст: {employee.Age}{Environment.NewLine}Название компании: {employee.CompanyName}{Environment.NewLine}" +
+		//		$"Должность: {employee.Position}{Environment.NewLine}Город: {employee.CityName}";
+		//}
 	}
 }
