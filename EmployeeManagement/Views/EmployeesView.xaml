@@ -12,7 +12,6 @@
         <vm:EmployeesViewModel></vm:EmployeesViewModel>
     </Window.DataContext>
     <Grid>
-        <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="40,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" />
         <ListView ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged}" Margin="40,30,40,30">
             <ListView.View>
                 <GridView>
@@ -37,5 +36,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="40,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" />
+        <TextBox Text="{Binding FilterMessage}" HorizontalAlignment="Left" Height="23" Margin="200,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" />
     </Grid>
 </Window>
