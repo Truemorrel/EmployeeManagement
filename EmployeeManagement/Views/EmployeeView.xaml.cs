@@ -25,5 +25,10 @@ namespace EmployeeManagement.Views
 			InitializeComponent();
 			DataContext = employeeViewModel;
 		}
-	}
+
+		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+        }
+    }
 }

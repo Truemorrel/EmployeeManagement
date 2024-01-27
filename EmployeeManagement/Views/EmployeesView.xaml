@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EmployeeManagement.Views"
         xmlns:vm="clr-namespace:EmployeeManagement.ViewModels"
         mc:Ignorable="d"
-        Title="EmployeesView" Height="450" Width="800">
+        Title="EmployeesView" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <ListView PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick" ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged}" Margin="40,30,40,30">

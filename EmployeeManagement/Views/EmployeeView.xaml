@@ -5,16 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeManagement.Views"
         mc:Ignorable="d"
-        Title="EmployeeView" Height="200" Width="400">
+        Title="EmployeeView" Height="200" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Margin="10,10,10,10">
-        <StackPanel Margin="10,10,10,10">
-            <TextBox Text="{Binding Employee.Id}" IsEnabled="False" ></TextBox>
-            <TextBox Text="{Binding Employee.FirstName}"></TextBox>
-            <TextBox Text="{Binding Employee.LastName}"></TextBox>
-            <TextBox Text="{Binding Employee.Age}"></TextBox>
-            <TextBox Text="{Binding Employee.CompanyName}"></TextBox>
-            <TextBox Text="{Binding Employee.Position}"></TextBox>
-            <TextBox Text="{Binding Employee.CityName}"></TextBox>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="257*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Идентификатор: " />
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Имя: " />
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Фимилия: " />
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Возраст: " />
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Название компании: " />
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Должность: " />
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Город: " />
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Employee.Id}" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Employee.FirstName}" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Employee.LastName}" />
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Employee.Age}" />
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Employee.CompanyName}" />
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Employee.Position}" />
+        <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding Employee.CityName}" />
     </Grid>
 </Window>
